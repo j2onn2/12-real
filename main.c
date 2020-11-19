@@ -6,18 +6,28 @@
 
 
 int main (int argc, char *argv []){
-	char src[] = "Thr worst things to eat before you sleep"	;
-	char dst[100]	;
 	
-	char str[30] = "happy C programming"	;
+	FILE *fp	;
+	char str[100]	;
+	int i	;
 	
-	strcpy(dst, src)	;
+	fp = fopen("sample.txt", "w")	;
 	
-	printf("copied string : %s\n", dst)	;
+	if (fp == NULL)
+	{
+		return -1	;
+		}	
+	for (i=0; i<3; i++)
+	{
+		
+	printf("Input a word : ")	;
+	scanf("%s", str)	;
+	
+	fprintf(fp, "%s\n", str)	;
+}
 	
 	
-	pirntf("문자열\"%s\"의 길이 : %i\n", str, strlen(str))	;
-	
+	fclose(fp);
 	return 0	;
 }
 
