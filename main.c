@@ -8,24 +8,22 @@
 int main (int argc, char *argv []){
 	
 	FILE *fp	;
+	//char	c;
 	char str[100]	;
-	int i	;
 	
-	fp = fopen("sample.txt", "w")	;
+	fp = fopen("sample.txt", "r")	;
 	
 	if (fp == NULL)
 	{
 		return -1	;
-		}	
-	for (i=0; i<3; i++)
-	{
+		}
 		
-	printf("Input a word : ")	;
-	scanf("%s", str)	;
+	//while ( (c=fgetc(fp)) != EOF)	{
+	//printf("%c", c)	;
+	while (fgets(str, 100, fp) != NULL) {
 	
-	fprintf(fp, "%s\n", str)	;
-}
-	
+	printf("%s", str)	;
+	}
 	
 	fclose(fp);
 	return 0	;
